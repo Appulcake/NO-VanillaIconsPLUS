@@ -4,7 +4,7 @@ using HarmonyLib;
 
 namespace VanillaIconsPLUS;
 
-[HarmonyPatch(typeof(RadarWarning), "Update")]
+[HarmonyPatch(typeof(RadarWarning), nameof(RadarWarning.Update))]
 public static class Patch_RadarWarning_Update
 {
     private static readonly FieldInfo JammingLookupField = AccessTools.Field(typeof(RadarWarning), "jammingIconLookup");

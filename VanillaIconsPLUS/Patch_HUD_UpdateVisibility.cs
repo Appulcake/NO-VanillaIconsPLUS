@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace VanillaIconsPLUS;
 
-[HarmonyPatch(typeof(HUDUnitMarker), "UpdateVisibility")]
+[HarmonyPatch(typeof(HUDUnitMarker), nameof(HUDUnitMarker.UpdateVisibility))]
 public static class Patch_HUD_UpdateVisibility
 {
     private static void Postfix(HUDUnitMarker __instance)

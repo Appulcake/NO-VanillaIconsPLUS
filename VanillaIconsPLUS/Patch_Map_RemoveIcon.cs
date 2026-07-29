@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace VanillaIconsPLUS;
 
-[HarmonyPatch(typeof(UnitMapIcon), "OnRemoveIcon")]
+[HarmonyPatch(typeof(UnitMapIcon), nameof(UnitMapIcon.OnRemoveIcon))]
 public static class Patch_Map_RemoveIcon
 {
     private static void Prefix(UnitMapIcon __instance)

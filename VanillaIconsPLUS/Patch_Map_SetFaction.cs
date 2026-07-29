@@ -3,7 +3,7 @@ using HarmonyLib;
 
 namespace VanillaIconsPLUS;
 
-[HarmonyPatch(typeof(DynamicMap), "SetFaction")]
+[HarmonyPatch(typeof(DynamicMap), nameof(DynamicMap.SetFaction))]
 public static class Patch_Map_SetFaction
 {
     private static void Postfix(DynamicMap __instance)

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace VanillaIconsPLUS;
 
-[HarmonyPatch(typeof(UnitMapIcon), "UpdateIcon")]
+[HarmonyPatch(typeof(UnitMapIcon), nameof(UnitMapIcon.UpdateIcon))]
 public static class Patch_Map_UpdateIcon
 {
     private static void Postfix(UnitMapIcon __instance, float mapDisplayFactor, float mapInverseScale,
@@ -35,16 +35,16 @@ public static class Patch_Map_UpdateIcon
             }
             
             text.font = holder.font;
-            text.fontSize = instance.MAPNameFontSize.Value;
+            text.fontSize = instance.MapNameFontSize.Value;
             text.alignment = TextAlignmentOptions.Center;
             text.raycastTarget = false;
             __instance.SetLabel(text);
         }
         
         text.text = aircraft.Player.GetNameOrCensored();
-        var flag = !instance.ShowMAPNames.Value;
-        text.fontSize = instance.MAPNameFontSize.Value;
-        var value = instance.MAPNameOffset.Value;
+        var flag = !instance.ShowMapNames.Value;
+        text.fontSize = instance.MapNameFontSize.Value;
+        var value = instance.MapNameOffset.Value;
         text.transform.localPosition = image.transform.localPosition + new Vector3(0f, value, 0f);
         text.transform.localScale = Vector3.one * mapInverseScale;
         var flag2 = false;
@@ -55,7 +55,7 @@ public static class Patch_Map_UpdateIcon
             flag2 = factionMode == FactionMode.Friendly;
         }
         
-        text.color = flag2 ? instance.FriendlyNameMAP.Value : instance.EnemyNameMAP.Value;
+        text.color = flag2 ? instance.FriendlyNameMap.Value : instance.EnemyNameMap.Value;
         var enabled = mapMaximized && __instance.gameObject.activeInHierarchy && !JamState.PlayerIsJammed && !flag;
         text.enabled = enabled;
     }

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace VanillaIconsPLUS;
 
-[HarmonyPatch(typeof(HUDUnitMarker), "UpdatePosition")]
+[HarmonyPatch(typeof(HUDUnitMarker), nameof(HUDUnitMarker.UpdatePosition))]
 public static class Patch_HUD_UpdatePosition
 {
     private static void Postfix(HUDUnitMarker __instance)

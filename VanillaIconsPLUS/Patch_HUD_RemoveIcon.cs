@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace VanillaIconsPLUS;
 
-[HarmonyPatch(typeof(HUDUnitMarker), "RemoveIcon")]
+[HarmonyPatch(typeof(HUDUnitMarker), nameof(HUDUnitMarker.RemoveIcon))]
 public static class Patch_HUD_RemoveIcon
 {
     private static void Prefix(HUDUnitMarker __instance)

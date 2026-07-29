@@ -2,7 +2,7 @@ using HarmonyLib;
 
 namespace VanillaIconsPLUS;
 
-[HarmonyPatch(typeof(UnitMapIcon), "UpdateIcon")]
+[HarmonyPatch(typeof(UnitMapIcon), nameof(UnitMapIcon.UpdateIcon))]
 public static class Patch_Map_AAColour
 {
     private static void Postfix(UnitMapIcon __instance)

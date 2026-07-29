@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace VanillaIconsPLUS;
 
-[HarmonyPatch(typeof(CombatHUD), "UpdateMarkers")]
+[HarmonyPatch(typeof(CombatHUD), nameof(CombatHUD.UpdateMarkers))]
 public static class Patch_HUD_AAColour
 {
     private static void Postfix(CombatHUD __instance)
