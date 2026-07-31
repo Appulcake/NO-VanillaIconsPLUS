@@ -2,7 +2,7 @@
     <PropertyGroup>
         <Game_Path>Y:\Games\steamapps\common\Nuclear Option\NuclearOption_Data\Managed</Game_Path>
         <TargetFramework>net472</TargetFramework>
-        <Version>1.5.4</Version>
+        <Version>1.5.5</Version>
         <AssemblyName>Com.Hellcat92.VanillaIconsPLUS_$(Version)</AssemblyName>
         <RootNamespace>VanillaIconsPLUS</RootNamespace>
         <Authors>Hellcat92;Appulcake</Authors>

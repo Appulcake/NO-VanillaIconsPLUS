@@ -1,4 +1,5 @@
 using HarmonyLib;
+using NuclearOption.Networking;
 using TMPro;
 using UnityEngine;
 
@@ -39,7 +40,7 @@ public static class Patch_HUD_UpdateVisibility
             holder.spawnTime = Time.timeSinceLevelLoad;
         }
         
-        text.text = aircraft.Player.GetNameOrCensored();
+        text.text = aircraft.Player.GetDisplayName(PlayerNameContext.ChatOrLeaderboard);
         if (Time.timeSinceLevelLoad - holder.spawnTime < 0.01f) text.enabled = false;
     }
 }

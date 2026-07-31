@@ -1,4 +1,5 @@
 using HarmonyLib;
+using NuclearOption.Networking;
 using TMPro;
 using UnityEngine;
 
@@ -41,7 +42,7 @@ public static class Patch_Map_UpdateIcon
             __instance.SetLabel(text);
         }
         
-        text.text = aircraft.Player.GetNameOrCensored();
+        text.text = aircraft.Player.GetDisplayName(PlayerNameContext.ChatOrLeaderboard);
         var flag = !instance.ShowMapNames.Value;
         text.fontSize = instance.MapNameFontSize.Value;
         var value = instance.MapNameOffset.Value;
