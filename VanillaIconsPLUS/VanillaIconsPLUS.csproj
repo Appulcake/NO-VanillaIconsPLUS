@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <Game_Path>Y:\Games\steamapps\common\Nuclear Option\NuclearOption_Data\Managed</Game_Path>
+        <TargetFramework>net472</TargetFramework>
+        <Version>1.5.5</Version>
+        <AssemblyName>Com.Hellcat92.VanillaIconsPLUS_$(Version)</AssemblyName>
+        <RootNamespace>VanillaIconsPLUS</RootNamespace>
+        <Authors>Hellcat92;Appulcake</Authors>
+        <GenerateAssemblyInfo>True</GenerateAssemblyInfo>
+    </PropertyGroup>
+    <PropertyGroup>
+        <LangVersion>latest</LangVersion>
+        <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+        <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+    </PropertyGroup>
+    <PropertyGroup/>
+    <ItemGroup/>
+
+    <ItemGroup>
+        <PackageReference Include="BepInEx.AssemblyPublicizer.MSBuild" Version="0.4.3" PrivateAssets="all" ExcludeAssets="runtime"/>
+        <PackageReference Include="BepInEx.Analyzers" Version="1.*" PrivateAssets="all"/>
+        <PackageReference Include="BepInEx.Core" Version="5.*"/>
+        <PackageReference Include="BepInEx.PluginInfoProps" Version="1.*"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Reference Include="UnityEngine.CoreModule" HintPath="$(Game_Path)\UnityEngine.CoreModule.dll" Private="False" Publicize="True"/>
+        <Reference Include="Assembly-CSharp" HintPath="$(Game_Path)\Assembly-CSharp.dll" Private="False" Publicize="True">
+            <Aliases>global,NuclearOption</Aliases>
+        </Reference>
+        <Reference Include="UnityEngine" HintPath="$(Game_Path)\UnityEngine.dll" Private="False" Publicize="True"/>
+        <Reference Include="UnityEngine.UI" HintPath="$(Game_Path)\UnityEngine.UI.dll" Private="False" Publicize="True"/>
+        <Reference Include="UnityEngine.TextRenderingModule" HintPath="$(Game_Path)\UnityEngine.TextRenderingModule.dll" Private="False" Publicize="True"/>
+        <Reference Include="Mirage" HintPath="$(Game_Path)\Mirage.dll" Private="False" Publicize="True"/>
+        <Reference Include="Unity.TextMeshPro" HintPath="$(Game_Path)\Unity.TextMeshPro.dll" Private="False" Publicize="True"/>
+    </ItemGroup>
+
+    <ItemGroup Condition="'$(TargetFramework.TrimEnd(`0123456789`))' == 'net'">
+        <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.2" PrivateAssets="all"/>
+    </ItemGroup>
+</Project>
